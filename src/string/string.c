@@ -131,8 +131,17 @@ char *strchr(const char *str, int c)
 
 char *strrchr(const char *str, int c)
 {
-	/* TODO: Implement strrchr(). */
-	return NULL;
+	char *ret = NULL;
+	while (1) {
+		if (*str == '\0') {
+			break;
+		}
+		if (*str == (char)c) {
+			ret = str;
+		}
+		str++;
+	}
+	return ret;
 }
 
 char *strstr(const char *haystack, const char *needle)
