@@ -146,7 +146,28 @@ char *strrchr(const char *str, int c)
 
 char *strstr(const char *haystack, const char *needle)
 {
-	/* TODO: Implement strstr(). */
+	if (*needle == '\0') {
+		return haystack;
+	}
+	while (*haystack != '\0') {
+		char *h_ptr = haystack;
+		char *n_ptr = needle;
+
+		while (1) {
+			if (*n_ptr == '\0') {
+				return haystack;
+			}
+			if (*h_ptr == '\0') {
+				break;
+			}
+			if (*h_ptr != *n_ptr) {
+				break;
+			}
+			h_ptr++;
+			n_ptr++;
+		}
+		haystack++;
+	}
 	return NULL;
 }
 
