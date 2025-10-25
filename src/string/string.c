@@ -91,8 +91,18 @@ int strcmp(const char *str1, const char *str2)
 
 int strncmp(const char *str1, const char *str2, size_t len)
 {
-	/* TODO: Implement strncmp(). */
-	return -1;
+	while (len > 0) {
+		if (*str1 == '\0') {
+			return 0;
+		}
+		if (*str1 != *str2) {
+			return (unsigned)*str1 - (unsigned)*str2;
+		}
+		str1++;
+		str2++;
+		len--;
+	}
+	return 0;
 }
 
 size_t strlen(const char *str)
