@@ -173,8 +173,29 @@ char *strstr(const char *haystack, const char *needle)
 
 char *strrstr(const char *haystack, const char *needle)
 {
-	/* TODO: Implement strrstr(). */
-	return NULL;
+	char *last_match = NULL;
+	char *current_match = NULL;
+	char *curr_haystack = haystack;
+
+	size_t n_len = strlen(needle);
+
+	if (n_len == 0) {
+		return (char *)haystack + strlen(haystack);
+	}
+
+	while (1) {
+		current_match = strstr(curr_haystack, needle);
+
+		if (current_match == NULL) {
+			break;
+		} else {
+			last_match = current_match;
+
+			curr_haystack = current_match + 1;
+		}
+	}
+
+	return last_match;
 }
 
 void *memcpy(void *destination, const void *source, size_t num)
