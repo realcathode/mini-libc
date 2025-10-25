@@ -40,7 +40,24 @@ char *strncpy(char *destination, const char *source, size_t len)
 char *strcat(char *destination, const char *source)
 {
 	/* TODO: Implement strcat(). */
-	return destination;
+	char *dest_head = destination;
+
+	while (*destination != '\0') {
+		destination++;
+	}
+
+	*dest_head = destination;
+	while (1) {
+		char tmp = *source;
+		*destination = tmp;
+		source++;
+		destination++;
+
+		if (tmp == '\0') {
+			break;
+		}
+    }
+	return dest_head;
 }
 
 char *strncat(char *destination, const char *source, size_t len)
