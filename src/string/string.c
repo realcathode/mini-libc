@@ -38,12 +38,9 @@ char *strncpy(char *destination, const char *source, size_t len)
 char *strcat(char *destination, const char *source)
 {
 	char *dest_head = destination;
-
 	while (*destination != '\0') {
 		destination++;
 	}
-
-	*dest_head = destination;
 	while (1) {
 		char tmp = *source;
 		*destination = tmp;
@@ -59,8 +56,22 @@ char *strcat(char *destination, const char *source)
 
 char *strncat(char *destination, const char *source, size_t len)
 {
-	/* TODO: Implement strncat(). */
-	return destination;
+	char *dest_head = destination;
+
+	while (*destination != '\0') {
+		destination++;
+	}
+
+	while (len > 0 && *source != '\0') {
+		*destination = *source;
+		source++;
+		destination++;
+
+		len--;
+	}
+	// appends at most len bytes from source and then appends exactly one null terminator
+	*destination = '\0';
+	return dest_head;
 }
 
 int strcmp(const char *str1, const char *str2)
