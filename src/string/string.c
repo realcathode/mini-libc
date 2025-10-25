@@ -21,6 +21,20 @@ char *strcpy(char *destination, const char *source)
 char *strncpy(char *destination, const char *source, size_t len)
 {
 	/* TODO: Implement strncpy(). */
+    char *dest_head = destination;
+	while (len > 0 && *source != '\0') {
+		*destination = *source;
+		destination++;
+		source++;
+		len--;
+	}
+
+	// padding
+	while (len > 0) {
+		*destination++ = '\0';
+		len--;
+	}
+	return dest_head;
 }
 
 char *strcat(char *destination, const char *source)
