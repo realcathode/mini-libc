@@ -117,7 +117,15 @@ size_t strlen(const char *str)
 
 char *strchr(const char *str, int c)
 {
-	/* TODO: Implement strchr(). */
+	while (1) {
+		if (*str == '\0') {
+			return NULL;
+		}
+		if (*str == (char)c) {
+ 			return str;
+ 		}
+		str++;
+	}
 	return NULL;
 }
 
