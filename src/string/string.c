@@ -76,8 +76,17 @@ char *strncat(char *destination, const char *source, size_t len)
 
 int strcmp(const char *str1, const char *str2)
 {
-	/* TODO: Implement strcmp(). */
-	return -1;
+	while (1) {
+		if (*str1 == '\0') {
+			break;
+		}
+		if (*str1 != *str2) {
+			break;
+		}
+		str1++;
+		str2++;
+	}
+	return (unsigned)*str1 - (unsigned)*str2;
 }
 
 int strncmp(const char *str1, const char *str2, size_t len)
