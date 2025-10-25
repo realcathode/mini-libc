@@ -4,7 +4,6 @@
 
 char *strcpy(char *destination, const char *source)
 {
-	/* TODO: Implement strcpy(). */
 	char *dest_head = destination;
 	
 	while (*source != '\0') {
@@ -20,7 +19,6 @@ char *strcpy(char *destination, const char *source)
 
 char *strncpy(char *destination, const char *source, size_t len)
 {
-	/* TODO: Implement strncpy(). */
     char *dest_head = destination;
 	while (len > 0 && *source != '\0') {
 		*destination = *source;
@@ -39,7 +37,6 @@ char *strncpy(char *destination, const char *source, size_t len)
 
 char *strcat(char *destination, const char *source)
 {
-	/* TODO: Implement strcat(). */
 	char *dest_head = destination;
 
 	while (*destination != '\0') {
