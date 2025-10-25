@@ -5,13 +5,22 @@
 char *strcpy(char *destination, const char *source)
 {
 	/* TODO: Implement strcpy(). */
-	return destination;
+	char *dest_head = destination;
+	
+	while (*source != '\0') {
+		*destination = *source;
+		source++;
+		destination++;
+	}
+
+	*destination = '\0';
+
+	return dest_head;
 }
 
 char *strncpy(char *destination, const char *source, size_t len)
 {
 	/* TODO: Implement strncpy(). */
-	return destination;
 }
 
 char *strcat(char *destination, const char *source)
