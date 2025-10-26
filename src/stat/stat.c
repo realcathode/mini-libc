@@ -7,6 +7,12 @@
 
 int stat(const char *restrict path, struct stat *restrict buf)
 {
-	/* TODO: Implement stat(). */
-	return -1;
+    long ret = syscall(__NR_newfstatat, AT_FDCWD, path, buf, 0);
+
+    if (ret < 0) {
+        errno = -ret;
+        return -1;
+    }
+
+    return 0;
 }
