@@ -180,7 +180,7 @@ char *strrstr(const char *haystack, const char *needle)
 	size_t n_len = strlen(needle);
 
 	if (n_len == 0) {
-		return (char *)haystack + strlen(haystack);
+		return haystack + strlen(haystack);
 	}
 
 	while (1) {
@@ -200,8 +200,19 @@ char *strrstr(const char *haystack, const char *needle)
 
 void *memcpy(void *destination, const void *source, size_t num)
 {
-	/* TODO: Implement memcpy(). */
-	return destination;
+	char *dest_ptr = destination;
+	char *src_ptr = source;
+
+	void *dest_head = destination;
+
+	while (num > 0) {
+		*dest_ptr = *src_ptr;
+		dest_ptr++;
+		src_ptr++;
+		num--;
+	}
+
+	return dest_head;
 }
 
 void *memmove(void *destination, const void *source, size_t num)
