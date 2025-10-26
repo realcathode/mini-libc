@@ -217,8 +217,37 @@ void *memcpy(void *destination, const void *source, size_t num)
 
 void *memmove(void *destination, const void *source, size_t num)
 {
-	/* TODO: Implement memmove(). */
-	return destination;
+	char *dest_ptr = destination;
+	char *src_ptr = source;
+
+	void *dest_head = destination;
+
+	if (num == 0) {
+		return dest_head;
+	}
+	if (destination == source) {
+		return dest_head;
+	}
+
+	if (dest_ptr > src_ptr) {
+		dest_ptr += num;
+		src_ptr += num;
+		while (num > 0) {
+			--dest_ptr;
+			--src_ptr;
+			*dest_ptr = *src_ptr;
+			num--;
+		}
+	} else {
+		while (num > 0) {
+			*dest_ptr = *src_ptr;
+			dest_ptr++;
+			src_ptr++;
+			num--;
+		}
+	}
+
+	return dest_head;
 }
 
 int memcmp(const void *ptr1, const void *ptr2, size_t num)
