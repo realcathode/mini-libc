@@ -269,6 +269,16 @@ int memcmp(const void *ptr1, const void *ptr2, size_t num)
 
 void *memset(void *source, int value, size_t num)
 {
-	/* TODO: Implement memset(). */
-	return source;
+	void *src_head = source;
+	char *src_ptr = source;
+
+	char v = value;
+
+	while (num > 0) {
+		*src_ptr = v;
+		src_ptr++;
+		num--;
+	}
+
+	return src_head;
 }
