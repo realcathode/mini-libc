@@ -14,7 +14,7 @@ char *strcpy(char *destination, const char *source)
 
 	*destination = '\0';
 
-	return dest_head;
+	return (char *)dest_head;
 }
 
 char *strncpy(char *destination, const char *source, size_t len)
@@ -32,7 +32,7 @@ char *strncpy(char *destination, const char *source, size_t len)
 		*destination++ = '\0';
 		len--;
 	}
-	return dest_head;
+	return (char *)dest_head;
 }
 
 char *strcat(char *destination, const char *source)
@@ -51,7 +51,7 @@ char *strcat(char *destination, const char *source)
 			break;
 		}
     }
-	return dest_head;
+	return (char *)dest_head;
 }
 
 char *strncat(char *destination, const char *source, size_t len)
@@ -71,7 +71,7 @@ char *strncat(char *destination, const char *source, size_t len)
 	}
 	// appends at most len bytes from source and then appends exactly one null terminator
 	*destination = '\0';
-	return dest_head;
+	return (char *)dest_head;
 }
 
 int strcmp(const char *str1, const char *str2)
@@ -122,7 +122,7 @@ char *strchr(const char *str, int c)
 			return NULL;
 		}
 		if (*str == (char)c) {
- 			return str;
+ 			return (char *)str;
  		}
 		str++;
 	}
@@ -137,25 +137,25 @@ char *strrchr(const char *str, int c)
 			break;
 		}
 		if (*str == (char)c) {
-			ret = str;
+			ret = (char *)str;
 		}
 		str++;
 	}
-	return ret;
+	return (char *)ret;
 }
 
 char *strstr(const char *haystack, const char *needle)
 {
 	if (*needle == '\0') {
-		return haystack;
+		return (char *)haystack;
 	}
 	while (*haystack != '\0') {
-		char *h_ptr = haystack;
-		char *n_ptr = needle;
+		char *h_ptr = (char *)haystack;
+		char *n_ptr = (char *)needle;
 
 		while (1) {
 			if (*n_ptr == '\0') {
-				return haystack;
+				return (char *)haystack;
 			}
 			if (*h_ptr == '\0') {
 				break;
@@ -175,12 +175,12 @@ char *strrstr(const char *haystack, const char *needle)
 {
 	char *last_match = NULL;
 	char *current_match = NULL;
-	char *curr_haystack = haystack;
+	char *curr_haystack = (char *)haystack;
 
 	size_t n_len = strlen(needle);
 
 	if (n_len == 0) {
-		return haystack + strlen(haystack);
+		return (char *)(haystack + strlen(haystack));
 	}
 
 	while (1) {
@@ -201,7 +201,7 @@ char *strrstr(const char *haystack, const char *needle)
 void *memcpy(void *destination, const void *source, size_t num)
 {
 	char *dest_ptr = destination;
-	char *src_ptr = source;
+	char *src_ptr = (char *)source;
 
 	void *dest_head = destination;
 
@@ -218,7 +218,7 @@ void *memcpy(void *destination, const void *source, size_t num)
 void *memmove(void *destination, const void *source, size_t num)
 {
 	char *dest_ptr = destination;
-	char *src_ptr = source;
+	char *src_ptr = (char *)source;
 
 	void *dest_head = destination;
 
@@ -252,8 +252,8 @@ void *memmove(void *destination, const void *source, size_t num)
 
 int memcmp(const void *ptr1, const void *ptr2, size_t num)
 {
-	char *p1 = ptr1;
-	char *p2 = ptr2;
+	char *p1 = (char *)ptr1;
+	char *p2 = (char *)ptr2;
 
 	while (num > 0) {
 		if (*p1 != *p2) {
