@@ -5,7 +5,6 @@
 char *strcpy(char *destination, const char *source)
 {
 	char *dest_head = destination;
-	
 	while (*source != '\0') {
 		*destination = *source;
 		source++;
@@ -123,7 +122,7 @@ char *strchr(const char *str, int c)
 		}
 		if (*str == (char)c) {
  			return (char *)str;
- 		}
+		}
 		str++;
 	}
 	return NULL;
