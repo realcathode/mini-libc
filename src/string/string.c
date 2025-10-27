@@ -121,7 +121,7 @@ char *strchr(const char *str, int c)
 			return NULL;
 		}
 		if (*str == (char)c) {
- 			return (char *)str;
+			return (char *)str;
 		}
 		str++;
 	}
