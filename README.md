@@ -22,10 +22,7 @@ The project is organized as follows:
 ```
 mini-libc/
 ├── src/          # Core implementation
-├── include/      # Headers and internal definitions
 ├── samples/      # Example programs using mini-libc
-├── tests/        # Automated tests and grading scripts
-└── checker/      # Auxiliary validation tools and linters
 ```
 
 ## Building
@@ -35,12 +32,4 @@ Build the library
 ```
 cd src
 make
-```
-
-The tests/ directory includes automated validation scripts.
-
-To execute the full test suite:
-```
-cd tests
-./grade.sh
 ```
